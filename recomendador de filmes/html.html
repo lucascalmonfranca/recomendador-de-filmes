@@ -1,101 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recomendador de Filmes</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body{
-      background: linear-gradient(135deg, #141e30, #243b55);
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      color:white;
-      padding:20px;
-    }
-
-    .container{
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
-      padding:30px;
-      border-radius:20px;
-      width:100%;
-      max-width:500px;
-      text-align:center;
-      box-shadow:0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    h1{
-      margin-bottom:20px;
-      font-size:2rem;
-    }
-
-    select, button{
-      width:100%;
-      padding:14px;
-      margin-top:15px;
-      border:none;
-      border-radius:10px;
-      font-size:1rem;
-    }
-
-    select{
-      background:white;
-      color:#333;
-    }
-
-    button{
-      background:#ff4b2b;
-      color:white;
-      cursor:pointer;
-      transition:0.3s;
-      font-weight:bold;
-    }
-
-    button:hover{
-      background:#ff1c1c;
-      transform:scale(1.03);
-    }
-
-    .resultado{
-      margin-top:25px;
-      padding:20px;
-      border-radius:15px;
-      background: rgba(255,255,255,0.1);
-      display:none;
-      animation: aparecer 0.5s ease;
-    }
-
-    .resultado img{
-      width:200px;
-      border-radius:10px;
-      margin-bottom:15px;
-    }
-
-    .resultado h2{
-      margin-bottom:10px;
-    }
-
-    @keyframes aparecer{
-      from{
-        opacity:0;
-        transform:translateY(10px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -117,98 +27,13 @@
 
     <div class="resultado" id="resultado">
       <img id="poster" src="" alt="Poster do filme">
+
       <h2 id="titulo"></h2>
+
       <p id="descricao"></p>
     </div>
   </div>
 
-  <script>
-    const filmes = {
-      acao: [
-        {
-          titulo: "John Wick",
-          descricao: "Um ex-assassino retorna ao submundo em busca de vingança.",
-          poster: "https://upload.wikimedia.org/wikipedia/en/9/98/John_Wick_TeaserPoster.jpg"
-        },
-        {
-          titulo: "Mad Max: Estrada da Fúria",
-          descricao: "Uma perseguição explosiva em um mundo pós-apocalíptico.",
-          poster: "https://upload.wikimedia.org/wikipedia/en/6/6e/Mad_Max_Fury_Road.jpg"
-        }
-      ],
-
-      comedia: [
-        {
-          titulo: "As Branquelas",
-          descricao: "Dois agentes do FBI se disfarçam para resolver um caso.",
-          poster: "https://upload.wikimedia.org/wikipedia/en/f/f7/White_chicks.jpg"
-        },
-        {
-          titulo: "Se Beber, Não Case",
-          descricao: "Uma despedida de solteiro vira um caos em Las Vegas.",
-          poster: "https://upload.wikimedia.org/wikipedia/en/b/b9/Hangoverposter09.jpg"
-        }
-      ],
-
-      ficcao: [
-        {
-          titulo: "Interestelar",
-          descricao: "Uma missão espacial para salvar a humanidade.",
-          poster: "https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg"
-        },
-        {
-          titulo: "Matrix",
-          descricao: "Um hacker descobre a verdade sobre sua realidade.",
-          poster: "https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg"
-        }
-      ],
-
-      terror: [
-        {
-          titulo: "Invocação do Mal",
-          descricao: "Investigadores paranormais enfrentam forças malignas.",
-          poster: "https://upload.wikimedia.org/wikipedia/en/1/1f/Conjuring_poster.jpg"
-        },
-        {
-          titulo: "It: A Coisa",
-          descricao: "Uma entidade aterrorizante assombra crianças.",
-          poster: "https://upload.wikimedia.org/wikipedia/en/5/5a/It_%282017%29_poster.jpg"
-        }
-      ],
-
-      romance: [
-        {
-          titulo: "Diário de uma Paixão",
-          descricao: "Uma história emocionante sobre amor verdadeiro.",
-          poster: "https://upload.wikimedia.org/wikipedia/en/8/86/Posternotebook.jpg"
-        },
-        {
-          titulo: "Titanic",
-          descricao: "Um romance inesquecível a bordo do Titanic.",
-          poster: "https://upload.wikimedia.org/wikipedia/en/2/22/Titanic_poster.jpg"
-        }
-      ]
-    };
-
-    function recomendarFilme() {
-      const genero = document.getElementById("genero").value;
-      const resultado = document.getElementById("resultado");
-
-      if (!genero) {
-        alert("Escolha um gênero!");
-        return;
-      }
-
-      const lista = filmes[genero];
-      const filme = lista[Math.floor(Math.random() * lista.length)];
-
-      document.getElementById("titulo").innerText = filme.titulo;
-      document.getElementById("descricao").innerText = filme.descricao;
-      document.getElementById("poster").src = filme.poster;
-
-      resultado.style.display = "block";
-    }
-  </script>
-
+  <script src="/script.js"></script>
 </body>
 </html>
